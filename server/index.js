@@ -1,15 +1,6 @@
-// B4F Hub — local API.
-//
-// A small standalone Express server. It loads deterministic seed data on startup;
-// all changes (new posts, likes, applications) live only in memory and are reset
-// the next time this server restarts.
-//
-// Run with: npm start  (from inside the server/ folder — the client/ folder is a
-// separate project and is started in its own terminal).
-
 import express from "express";
 import dotenv from "dotenv";
-
+import mysteriesRouter from "./router/routes.js";
 
 dotenv.config();
 
@@ -23,7 +14,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/api/mysteries", mysteriesRouter);
 
 app.listen(PORT, () => {
-  console.log(`B4F Hub local API running at http://localhost:${PORT}`);
+  console.log(`Mystery Room API running at http://localhost:${PORT}`);
 });
