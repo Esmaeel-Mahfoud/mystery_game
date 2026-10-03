@@ -9,6 +9,8 @@ const initialMysteries = [
       "Inside, the table is set, the beds are unmade, and the back door swings in the wind. " +
       "Three keepers lived here: Jamil (head keeper), Murad (assistant, with a bad cough) and young Sami. " +
       "You are the inspector sent from Latakia. Find out what happened.",
+    isLocked: false,
+    unlockAfterId: null,
     stages: [
       {
         question:
@@ -102,6 +104,112 @@ const initialMysteries = [
       "The wave took all three keepers together. The clock stopped at 9:40 PM. " +
       "The lamp, lit by Jamil at dusk as always, was the last thing at Ras al-Noor to go dark. " +
       "Case closed, Inspector. The sea keeps its own records.",
+  },
+
+  {
+    id: 2,
+
+    title: "The Bab Al-Hara Challenge",
+    tagline: "A missing key. A locked house. One suspicious neighbor.",
+    intro:
+      "You have entered the famous neighborhood of Bab Al-Hara. " +
+      "One morning, Abu Issam discovers that the key to the neighborhood gate has disappeared. " +
+      "Three people were near the gate the night before: Abu Issam, Abu Shihab and Feryal. " +
+      "Each person tells a different story. Your job is to find out who took the key.",
+    isLocked: true,
+    unlockAfterId: 1,
+    stages: [
+      {
+        question: "Who had the key when the neighborhood gate was locked?",
+        clues: [
+          {
+            id: 1,
+            title: "Abu Issam's Statement",
+            text: 'Abu Issam says: "I locked the gate at sunset and put the key in my pocket."',
+          },
+          {
+            id: 2,
+            title: "The Empty Pocket",
+            text: "Abu Issam's pocket was empty when he returned home. He remembers having the key when he left the gate.",
+          },
+          {
+            id: 3,
+            title: "Feryal's Statement",
+            text: 'Feryal says: "I saw Abu Shihab standing beside Abu Issam at the gate just before it was locked."',
+          },
+        ],
+        answer: "abu shihab",
+        hints: [
+          "Think about who was standing next to Abu Issam when he still had the key.",
+          "The answer is the person mentioned by Feryal.",
+        ],
+        successMessage:
+          "Correct. Abu Shihab was the last person seen beside Abu Issam before the key disappeared.",
+      },
+
+      {
+        question:
+          "What was the first thing Abu Shihab did after the gate was locked?",
+        clues: [
+          {
+            id: 1,
+            title: "The Alley",
+            text: "A neighbor saw Abu Shihab walking quickly toward the old coffee shop.",
+          },
+          {
+            id: 2,
+            title: "The Coffee Shop",
+            text: "The coffee shop owner remembers Abu Shihab arriving alone and asking whether anyone had seen Abu Issam.",
+          },
+          {
+            id: 3,
+            title: "The Footprints",
+            text: "Fresh footprints led from the gate toward the coffee shop. No other footprints went in the opposite direction.",
+          },
+        ],
+        answer: "coffee shop",
+        hints: [
+          "Look at where the footprints lead.",
+          "It is the place where Abu Shihab went after leaving the gate.",
+        ],
+        successMessage:
+          "Correct. Abu Shihab went straight to the coffee shop after the gate was locked.",
+      },
+
+      {
+        question: "Where was the missing key hidden? (Two words.)",
+        clues: [
+          {
+            id: 1,
+            title: "The Coffee Table",
+            text: "A small metal key was found underneath a wooden box near the coffee shop entrance.",
+          },
+          {
+            id: 2,
+            title: "The Wooden Box",
+            text: "The box was usually used to store old neighborhood papers and spare tools.",
+          },
+          {
+            id: 3,
+            title: "Abu Shihab's Confession",
+            text: 'Abu Shihab finally admits: "I only wanted to keep the gate locked for one night. I hid the key under the wooden box."',
+          },
+        ],
+        answer: "wooden box",
+        hints: [
+          "The confession tells you exactly where the key was hidden.",
+          "The answer is the object under which the key was found.",
+        ],
+        successMessage:
+          "Correct. The key was hidden under the wooden box. The mystery is solved.",
+      },
+    ],
+
+    reveal:
+      "Abu Shihab took the key from Abu Issam just before the neighborhood gate was locked. " +
+      "He walked directly to the coffee shop and hid the key under a wooden box near the entrance. " +
+      "He wanted to keep the gate locked for one night as part of a secret plan. " +
+      "The missing key was found, and the Bab Al-Hara mystery was finally solved.",
   },
 ];
 

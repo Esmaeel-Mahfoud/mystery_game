@@ -1,5 +1,5 @@
 import {mysteries, progress, MAX_ANSWER_LENGTH} from "../store.js";
-import {delay, normalizeAnswer} from "../utils.js";
+import {delay, normalizeAnswer, isMysteryLocked} from "../utils.js";
 
 export async function getAllMysteries(req, res) {
   await delay(350);
@@ -10,6 +10,7 @@ export async function getAllMysteries(req, res) {
     tagline: mystery.tagline,
     totalStages: mystery.stages.length,
     solved: progress[mystery.id].solved,
+    isLocked: isMysteryLocked(mystery, progress),
   }));
 
   res.json(summaries);
@@ -21,6 +22,11 @@ export function getMysteryById(req, res) {
 
   if (!mystery) {
     return res.status(404).json({error: `No mystery found with id ${id}.`});
+  }
+  if (isMysteryLocked(mystery, progress)) {
+    return res.status(423).json({
+      error: "This mystery is locked. Solve the previous mystery first.",
+    });
   }
 
   const state = progress[id];
@@ -59,6 +65,11 @@ export function getMysteryClues(req, res) {
 
   if (!mystery) {
     return res.status(404).json({error: `No mystery found with id ${id}.`});
+  }
+  if (isMysteryLocked(mystery, progress)) {
+    return res.status(423).json({
+      error: "This mystery is locked. Solve the previous mystery first.",
+    });
   }
 
   const state = progress[id];
@@ -141,6 +152,12 @@ export function requestHint(req, res) {
 
   if (!mystery) {
     return res.status(404).json({error: `No mystery found with id ${id}.`});
+  }
+
+  if (isMysteryLocked(mystery, progress)) {
+    return res.status(423).json({
+      error: "This mystery is locked. Solve the previous mystery first.",
+    });
   }
 
   const state = progress[id];
