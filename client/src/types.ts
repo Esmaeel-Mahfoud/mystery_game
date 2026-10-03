@@ -1,50 +1,62 @@
-export type PostCategory = "announcement" | "event" | "community" | "resource";
 
-export interface Post {
-  id: number;
-  author: string;
-  avatar: string;
-  category: PostCategory;
-  content: string;
-  createdAt: string;
-  likes: number;
-  liked: boolean;
-}
 
-export type OpportunityType =
-  | "job"
-  | "internship"
-  | "scholarship"
-  | "volunteer";
-export type WorkMode = "remote" | "hybrid" | "on-site";
-export type ExperienceLevel = "entry" | "junior" | "mid" | "any";
-
-export interface Opportunity {
+export interface MysterySummary {
   id: number;
   title: string;
-  company: string;
-  companyLogo: string;
-  type: OpportunityType;
-  workMode: WorkMode;
-  location: string;
-  skills: string[];
-  description: string;
-  deadline: string;
-  postedAt: string;
-  level: ExperienceLevel;
-  applied: boolean;
+  tagline: string;
+  totalStages: number;
+  solved: boolean;
+  isLocked: boolean;
+
 }
 
-export type NotificationTone = "success" | "error";
-
-export interface AppNotification {
+export interface Clue {
   id: number;
-  message: string;
-  tone: NotificationTone;
+  title: string;
+  text: string;
 }
 
-export interface ApiHealth {
-  status: string;
-  opportunities: number;
-  posts: number;
+
+export interface MysteryUnsolved {
+  id: number;
+  title: string;
+  tagline: string;
+  intro: string;
+  totalStages: number;
+  currentStage: number;
+  solved: false;
+  question: string;
+  clues: Clue[];
+  hintsUsed: number;
+  hintsTotal: number;
+  hints: string[];
+  reveal: null;
+}
+
+
+export interface MysterySolved {
+  id: number;
+  title: string;
+  totalStages: number;
+  solved: true;
+  reveal: string;
+}
+
+export type Mystery = MysteryUnsolved | MysterySolved;
+
+
+export type CluesResponse = Clue[];
+
+export interface AnswerResult {
+  correct: boolean;
+  message: string;
+  solved?: boolean;
+  currentStage?: number;
+}
+
+export interface HintResult {
+  hint: string;
+  currentStage: number;
+  hintsUsed: number;
+  hintsTotal: number;
 }
