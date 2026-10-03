@@ -116,6 +116,12 @@ export function submitAnswer(req, res) {
     return res.status(404).json({error: `No mystery found with id ${id}.`});
   }
 
+  if (isMysteryLocked(mystery, progress)) {
+    return res.status(423).json({
+      error: "This mystery is locked. Solve the previous mystery first.",
+    });
+  }
+
   const state = progress[id];
 
   if (state.solved) {

@@ -108,9 +108,8 @@ const initialMysteries = [
 
   {
     id: 2,
-
     title: "The Bab Al-Hara Challenge",
-    tagline: "A missing key. A locked house. One suspicious neighbor.",
+    tagline: "A missing key. A locked gate. One suspicious neighbor.",
     intro:
       "You have entered the famous neighborhood of Bab Al-Hara. " +
       "One morning, Abu Issam discovers that the key to the neighborhood gate has disappeared. " +
@@ -120,7 +119,7 @@ const initialMysteries = [
     unlockAfterId: 1,
     stages: [
       {
-        question: "Who had the key when the neighborhood gate was locked?",
+        question: "Who was standing beside Abu Issam when he locked the gate?",
         clues: [
           {
             id: 1,
@@ -140,7 +139,7 @@ const initialMysteries = [
         ],
         answer: "abu shihab",
         hints: [
-          "Think about who was standing next to Abu Issam when he still had the key.",
+          "Think about who was next to Abu Issam at the gate.",
           "The answer is the person mentioned by Feryal.",
         ],
         successMessage:
@@ -149,7 +148,7 @@ const initialMysteries = [
 
       {
         question:
-          "What was the first thing Abu Shihab did after the gate was locked?",
+          "Where did Abu Shihab go right after the gate was locked? (Two words.)",
         clues: [
           {
             id: 1,
@@ -158,8 +157,8 @@ const initialMysteries = [
           },
           {
             id: 2,
-            title: "The Coffee Shop",
-            text: "The coffee shop owner remembers Abu Shihab arriving alone and asking whether anyone had seen Abu Issam.",
+            title: "The Coffee Shop Owner",
+            text: "The coffee shop owner remembers Abu Shihab arriving alone, looking worried, and asking whether any strangers had come by that evening.",
           },
           {
             id: 3,
@@ -181,35 +180,37 @@ const initialMysteries = [
         clues: [
           {
             id: 1,
-            title: "The Coffee Table",
-            text: "A small metal key was found underneath a wooden box near the coffee shop entrance.",
+            title: "The Search",
+            text: "A search of the coffee shop found nothing on the tables, in the drawers, or behind the counter.",
           },
           {
             id: 2,
-            title: "The Wooden Box",
-            text: "The box was usually used to store old neighborhood papers and spare tools.",
+            title: "The Entrance",
+            text: "Near the entrance stands a wooden box the owner uses to store old neighborhood papers and spare tools. Its lid is slightly open.",
           },
           {
             id: 3,
             title: "Abu Shihab's Confession",
-            text: 'Abu Shihab finally admits: "I only wanted to keep the gate locked for one night. I hid the key under the wooden box."',
+            text: 'Abu Shihab finally admits: "I only wanted the gate locked for one night. I hid the key where nobody would think to look, among the old papers and the spare tools."',
           },
         ],
         answer: "wooden box",
         hints: [
-          "The confession tells you exactly where the key was hidden.",
-          "The answer is the object under which the key was found.",
+          "Where in the coffee shop are old papers and spare tools kept?",
+          "Two words: the material of the container, then the container itself.",
         ],
         successMessage:
-          "Correct. The key was hidden under the wooden box. The mystery is solved.",
+          "Correct. The key was hidden in the wooden box. The mystery is solved.",
       },
     ],
 
     reveal:
-      "Abu Shihab took the key from Abu Issam just before the neighborhood gate was locked. " +
-      "He walked directly to the coffee shop and hid the key under a wooden box near the entrance. " +
-      "He wanted to keep the gate locked for one night as part of a secret plan. " +
-      "The missing key was found, and the Bab Al-Hara mystery was finally solved.",
+      "That evening, a stranger had been asking about the festival money kept in Abu Issam's shop. " +
+      "Abu Shihab feared a theft in the night and wanted the gate to stay locked until morning, so no one could open it. " +
+      "Just after Abu Issam locked the gate, Abu Shihab took the key from his pocket. " +
+      "He walked straight to the coffee shop, asked the owner about strangers, and hid the key in the wooden box near the entrance. " +
+      "He never meant to keep it. He only wanted one safe night for the neighborhood. " +
+      "The key was found, the gate was opened, and the Bab Al-Hara mystery was solved.",
   },
 ];
 
