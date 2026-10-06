@@ -15,4 +15,4 @@ router.get("/:id/clues", getMysteryClues);
 router.post("/:id/answers", submitAnswer);
 router.patch("/:id/hint", requestHint);
 
-export default router;
+export default router ;

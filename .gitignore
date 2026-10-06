@@ -12,10 +12,12 @@ dist
 dist-ssr
 build
 *.local
+package-lock.json
 
 # Environment files
 .env
 .env.local
+
 
 # Editor directories and files
 .vscode/*

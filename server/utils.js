@@ -15,5 +15,5 @@ export function isMysteryLocked(mystery, progress) {
     return false;
   }
 
-  return !progress[mystery.unlockAfterId]?.solved;
+  return !progress[mystery.unlockAfterId].solved;
 }

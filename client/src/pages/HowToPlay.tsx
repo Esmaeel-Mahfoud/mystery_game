@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
-
- function HowToPlay() {
+function HowToPlay() {
   return (
     <div className="card">
       <h1>How to play</h1>
