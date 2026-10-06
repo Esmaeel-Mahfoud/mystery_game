@@ -17,8 +17,8 @@ async function readErrorMessage(
     if (data && typeof data.error === "string") {
       return data.error;
     }
-  } catch {
-    
+  } catch(error) {
+    console.log(error);
   }
 
   return fallback;
